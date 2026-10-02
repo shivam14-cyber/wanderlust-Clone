@@ -1,0 +1,68 @@
+body{
+   font-family: "Plus Jakarta Sans", sans-serif !important;
+   margin: 0; 
+   padding: 0; 
+}
+#map { 
+  position: absolute;
+   top: 0;
+   bottom: 0;
+   width: 100%; }
+.navbar{
+  height:4rem;
+}
+
+.fa-compass{
+  color:#fe424d;
+  font-size: 2rem; 
+}
+
+.nav-item{
+  color: #222 !important;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .navbar-nav .nav-link {
+    margin-left: 30px;
+  }
+}
+
+/* footer */
+.unstyled ,li:hover{
+  text-decoration: underline;
+}
+
+/* card */
+.listing-card{
+  border:none !important;
+  margin:0.5rem;
+}
+
+.card-img-top{
+  border-radius: 1rem;
+  width: 100% !important;
+  object-fit: cover;
+}
+
+.card-body{
+  padding: 0 !important;
+}
+
+.card-text p{
+ font-weight: 400px;
+}
+
+.card-img-overlay{
+  opacity: 0;
+}
+
+.card-img-overlay:hover{
+  opacity: 0.5;
+  background-color: white;
+}
+
+.owner{
+  font-weight: 600;
+ 
+}
