@@ -1,3 +1,26 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem;
+  }
+  .btn-search:hover{
+    background-color: #de0a18;
+    color: #fff;
+   
+  }
+  .btn-search i{
+    display: inline;
+    margin-right: 3px;
+  }
+  .search-input{
+    border-radius: 25px;
+    padding: 0.5rem 2rem;
+    font-size: 0.8rem;
+  }
+</style>
+
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top border-bottom">
 
   <a class="navbar-brand" href="/listings">
@@ -19,15 +42,22 @@
     <div class="navbar-nav ">
 
       <a class="nav-item nav-link " href="/listings">
-        All Listings
+        Explore
       </a>
-
-      <a class="nav-item nav-link " href="/listings/new">
-        Add New Listing
-      </a>
-
     </div>
+
     <div class="navbar-nav ms-auto">
+      <form action="/listings" method="get" class="d-flex" role="search">
+        <input type="search" name="search" class="form-control me-2 search-input" placeholder="search destination"  >
+        <button class="btn btn-search " type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+    </div>
+
+
+    <div class="navbar-nav ms-auto">
+      <a class="nav-item nav-link " href="/listings/new">
+        Airbnd your home
+      </a>
       <%if(!currUser){%>
       <a href="/signup" class="nav-item   nav-link">Sign up</a>
       <a href="/login" class="nav-item   nav-link">Log in</a>

@@ -128,8 +128,19 @@
               </form>
               <% } %>
             </div>
-            <% } %>
+          <% } %>
         </div>
       </div>
+      <div class="col-md-8 col-lg-8">
+        <div id="map">
+        </div> 
+      </div>      
     </div>
   </div>
+
+  <script>
+    const maptoken= "<%=process.env.MAPTILER_KEY %>";
+    const coordinates = <%- JSON.stringify(listing.geomatry.coordinates) %>
+    console.log(coordinates);
+  </script>
+  <script src="/js/map.js"></script>

@@ -1,20 +1,37 @@
-require('dotenv').config()
-const mongoose=require("mongoose");
-const Listing=require("../model/listing");
-const initdata=require("./data")
 
-main().then(res=>console.log("mongodb connection successfull")).catch(err => console.log(err));
+const mongoose = require("mongoose");
+const Listing = require("../model/listing");
+const initdata = require("./data");
+
+main()
+    .then(() => {
+        console.log("MongoDB connection successful");
+    })
+    .catch((err) => {
+        console.log("MongoDB connection error:", err);
+    });
 
 async function main() {
-    await mongoose.connect(process.env.MONGODBURL);   
+    await mongoose.connect("mongodb+srv://sk2650shivam_db_user:IMvZCKKBGvajJ4nn@cluster0.xaqunbc.mongodb.net/?appName=Cluster0");
 }
 
+const insertManyData = async () => {
+    try {
+        await Listing.deleteMany({});
 
-const inserManydata=async()=>{
-  await Listing.deleteMany({});
-  const sampleData= initdata.data.map((obj)=>({...obj,owner:'6abf67c7b29a972c399f31bd'}));
-  await Listing.insertMany(sampleData);
-  console.log("data was saved");
-}
+        const sampleData = initdata.data.map((obj) => ({
+            ...obj,
+            owner: "6abf67c7b29a972c399f31bd",
+        }));
 
-inserManydata();
+        await Listing.insertMany(sampleData);
+
+        console.log("Data inserted successfully!");
+    } catch (err) {
+        console.log("Data insertion error:", err);
+    } finally {
+        await mongoose.connection.close();
+    }
+};
+
+insertManyData();

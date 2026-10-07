@@ -43,7 +43,7 @@ store.on("error",(err)=>{
 
 const sessionOption={
   store,
-  secret: process.env.SECRET,
+  secret: "mysuperSecreate",
   resave: false,
   saveUninitialized: true,
   cookie:{
@@ -63,10 +63,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use((req,res,next)=>{
-  res.locals.success=req.flash("success");
-  res.locals.error=req.flash("error");
-  res.locals.currUser=req.user;
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  res.locals.currUser = req.user;
+  res.locals.maptiler=process.env.MAPTILER_KEY;
   next();
 });
 
